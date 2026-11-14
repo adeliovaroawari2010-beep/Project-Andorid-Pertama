@@ -1,2 +1,9 @@
-# Project-Andorid-Pertama
-My first Android development project built with Kotlin and XML. Exploring fundamental Android concepts, user interface design, button interactions, and local data storage using SharedPreferences.
+# BelajarAndroid
+
+My First Android Development Journey.
+
+This repository documents my journey in learning Android application development using Kotlin and XML.
+
+The project focuses on understanding Android fundamentals through practical implementation and continuous development.
+
+**Developer:** VOLTA Corporation
