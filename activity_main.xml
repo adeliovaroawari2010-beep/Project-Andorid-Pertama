@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    HALAMAN UTAMA APLIKASI
+    ConstraintLayout menjadi wadah utama seluruh halaman.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F5FA"
+    tools:context=".MainActivity">
+
+    <!--
+        SCROLLVIEW
+        Membuat halaman bisa digulir jika layar terlalu pendek.
+        Semua komponen utama diletakkan di dalamnya.
+    -->
+<ScrollView
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:fillViewport="true"
+android:clipToPadding="false"
+android:paddingBottom="16dp"
+
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent">
+
+<!-- Wadah seluruh komponen aplikasi -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/kontenUtama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="24dp">
+
+    <!--
+        JUDUL / SAPAAN
+        ID txtSalam digunakan Kotlin untuk mengubah teks
+        dan warna tulisan saat tema diganti.
+    -->
+    <TextView
+        android:id="@+id/txtSalam"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_adel"
+        android:textColor="#18243A"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Teks kecil di bawah judul -->
+    <TextView
+        android:id="@+id/txtSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RUANG KERJA PRIBADI"
+        android:textColor="#7A8498"
+        android:textSize="11sp"
+        android:letterSpacing="0.15"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+
+        app:layout_constraintTop_toBottomOf="@id/txtSalam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        KARTU PENGHITUNG KLIK
+        Menampilkan jumlah klik yang dikelola MainActivity.kt.
+        ID txtCounter jangan diganti agar fungsi lama tetap jalan.
+    -->
+    <TextView
+        android:id="@+id/txtCounter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/jumlah_klik"
+        android:textColor="#233A63"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="#FFFFFF"
+        android:elevation="3dp"
+        android:layout_marginTop="28dp"
+
+        app:layout_constraintTop_toBottomOf="@id/txtSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tombol untuk menambah jumlah klik -->
+    <Button
+        android:id="@+id/btnKlik"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tombol_klik"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#315EFB"
+        android:elevation="2dp"
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintTop_toBottomOf="@id/txtCounter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tombol untuk mengembalikan penghitung ke nol -->
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tombol_reset"
+        android:textColor="#35445F"
+        android:backgroundTint="#E3E9F4"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintTop_toBottomOf="@id/btnKlik"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Label bagian input nama -->
+    <TextView
+        android:id="@+id/lblNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PERSONALISASI"
+        android:textColor="#65718A"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.12"
+        android:layout_marginTop="28dp"
+
+        app:layout_constraintTop_toBottomOf="@id/btnReset"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--
+        KOLOM INPUT NAMA
+        Pengguna mengetik nama di sini.
+        ID inputNama dipakai untuk membaca dan menghapus input
+        serta mengisi nama yang sebelumnya tersimpan.
+    -->
+    <EditText
+        android:id="@+id/inputNama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_nama"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:textColor="#18243A"
+        android:textColorHint="#8993A6"
+        android:padding="14dp"
+        android:backgroundTint="#315EFB"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintTop_toBottomOf="@id/lblNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tombol untuk menampilkan sapaan berdasarkan nama input -->
+    <Button
+        android:id="@+id/btnSapa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tombol_sapa"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#315EFB"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintTop_toBottomOf="@id/inputNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        TOMBOL GANTI PENGGUNA
+        Menghapus nama yang tersimpan dan mengosongkan input.
+        Sesuai kode Kotlin sebelumnya, penghitung klik tetap disimpan.
+    -->
+    <Button
+        android:id="@+id/btnHapusNama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tombol_ganti_pengguna"
+        android:textColor="#35445F"
+        android:backgroundTint="#E3E9F4"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintTop_toBottomOf="@id/btnSapa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        TOMBOL GANTI TEMA
+        ID btnTema dipakai MainActivity.kt untuk mengubah
+        tampilan dari mode terang ke mode gelap dan sebaliknya.
+    -->
+    <Button
+        android:id="@+id/btnTema"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ganti_tema"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#7254D8"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/btnHapusNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Judul bagian riwayat aktivitas -->
+        <TextView
+            android:id="@+id/txtJudulRiwayat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="RIWAYAT AKTIVITAS"
+            android:textColor="#65718A"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="28dp"
+
+            app:layout_constraintTop_toBottomOf="@id/btnTema"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Wadah untuk menampilkan riwayat -->
+        <TextView
+            android:id="@+id/txtRiwayat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Belum ada aktivitas."
+            android:textColor="#65718A"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txtJudulRiwayat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
